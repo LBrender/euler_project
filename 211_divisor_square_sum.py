@@ -2,31 +2,24 @@
 # For example, function2(10) = 1 + 4 + 25 + 100 = 130.
 # Find the sum of all n, 0 < n < 64,000,000 such that function2(n) is a perfect square.
 
-def sum_divisors(number):
-	divisors_squared = [1, number**2]
+import math
+
+def should_add(number):
+	sum_of_divisors_squared = number**2 + 1
 	counter = 2
 	while counter * 2 <= number:
 		if number % counter == 0:
-			divisors_squared.append(counter**2)
+			sum_of_divisors_squared += (counter**2)
 		counter += 1
-	return sum(divisors_squared)
+	return math.sqrt(sum_of_divisors_squared) % 1 == 0
 
-def is_perfect_square(number):
-	counter = 1
-	while counter * counter < number:
-		counter += 1
-	if counter * counter == number:
-		return True
-	return False
-
-counter = 0
+counter = 1
 grand_total = 0
 
 while counter <= 64000000:
-	sum_of_divisors = sum_divisors(counter)
-	if is_perfect_square(sum_of_divisors):
-		grand_total += sum_of_divisors
-	print counter
+	if should_add(counter):
+		grand_total += counter
+	print(counter)
 	counter += 1
 
-print grand_total
+print(grand_total)
