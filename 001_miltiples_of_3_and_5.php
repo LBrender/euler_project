@@ -1,11 +1,11 @@
+<?php
+
 # If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
 // Source - https://stackoverflow.com/a
 // Posted by Sergej, modified by community. See post 'Timeline' for change history
 // Retrieved 2025-11-25, License - CC BY-SA 3.0
-
-<?php
 
 $sum = 0;
 for ($i = 1; $i < 1000; $i++) {
